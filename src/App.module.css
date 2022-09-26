@@ -37,7 +37,7 @@
   }
 }
 
-.UserName{
+.Purple{
   color:#6E7ACD
 }
 
@@ -82,4 +82,34 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.ProjectLive {
+  max-width: 250px;
+  margin: 20px auto;
+  overflow: auto;
+  min-height: 100px;
+  border: 2px solid rgb(178, 255, 126);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: hsl(113, 100%, 95%);
+}
+
+.ProjectDev {
+  max-width: 250px;
+  margin: 20px auto;
+  overflow: auto;
+  min-height: 100px;
+  border: 2px solid #ffff5a;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffffed;
+}
+
+.AddProject {
+
+}
+
+.ListProjects {
+
 }
