@@ -134,3 +134,23 @@ function App() {
 }
 
 export default App;
+
+/*
+                                          USE EFFECT
+
+This runs subsequently for any change in component, when states or props update
+useEffect(()=>{
+  ...
+})
+
+This runs subsequently only when the things specified in dependency array [], the second arg, changes
+useEffect(()=>{
+  ...
+}, [x])
+
+useEffect(()=>{
+  ...
+  return () => {code} // code runs only when the component is about to unmount
+}, [])
+
+*/
