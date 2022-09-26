@@ -107,9 +107,34 @@
 }
 
 .AddProject {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px;
 }
 
 .ListProjects {
+  display: flex;
+  flex-direction: row;
+  justify-content: first baseline;
+  padding: 10px;
+}
 
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #282c34;
+  min-height: 12vh;
+}
+
+.LinkNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  color: #d3d6dc;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding: 10px;
 }
