@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import { Project } from './Project';
 import { Footer } from './Footer';
+import Axios from 'axios';
 
 // npx create-react-app .
 function App() {
   // STATE
-  const [projectList, setProjectList] = useState([
-    {
-      id: 1,
-      name: 'CocaCola NFTs',
-      chain: 'Polygon',
-      budget: 1000000,
-      status: true,
-    },
-    {
-      id: 2,
-      name: 'CBN KYC',
-      chain: 'Fabric',
-      budget: 7500000,
-      status: false,
-    },
-  ]);
+  const [projectList, setProjectList] = useState([]);
   const [showAddProject, setShowAddProject] = useState(false);
   const [name, setName] = useState('');
   const [chain, setChain] = useState('');
   const [budget, setBudget] = useState(0);
   const [status, setStatus] = useState(false);
+
+  // USE EFFECT
+  useEffect(() => {
+    fetchProjectsAPI();
+  }, []);
 
   // ACTION
   const handleName = (event) => {
@@ -74,6 +65,12 @@ function App() {
         else return project;
       })
     );
+  };
+  const fetchProjectsAPI = () => {
+    Axios.get('http://localhost:5000').then((res) => {
+      console.log(res.data);
+      setProjectList(res?.data);
+    });
   };
 
   // RENDER
@@ -152,5 +149,8 @@ useEffect(()=>{
   ...
   return () => {code} // code runs only when the component is about to unmount
 }, [])
+
+NOTE: If you call an API in the component which changes the component-state outside the useEffect;
+      It will run forever.
 
 */
