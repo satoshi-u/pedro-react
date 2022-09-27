@@ -138,3 +138,10 @@
   font-family:Georgia, 'Times New Roman', Times, serif;
   padding: 10px;
 }
+
+.User{
+  display: flex;
+  color: #053552;
+  justify-content: flex-end;
+  font-size: larger;
+}

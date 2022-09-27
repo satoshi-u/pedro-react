@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from './App.module.css';
 import { Project } from './Project';
 import { Footer } from './Footer';
 import Axios from 'axios';
+import { AppContext } from './App';
 
 // npx create-react-app .
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
   const [chain, setChain] = useState('');
   const [budget, setBudget] = useState(0);
   const [status, setStatus] = useState(false);
+  const { user } = useContext(AppContext);
 
   // USE EFFECT
   useEffect(() => {
@@ -76,6 +78,7 @@ const Home = () => {
   // RENDER
   return (
     <div className={styles.App}>
+      <div className={styles.User}>User : {user}</div>
       <div className={styles.AddProject}>
         <button
           onClick={() => {
