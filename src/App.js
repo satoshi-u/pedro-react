@@ -11,6 +11,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { UserForm } from './UserForm';
+import { Footer } from './Footer';
 
 // @ts-ignore
 // helps avoiding prop drilling & helps accessing data within siblings
@@ -34,11 +36,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/userform" element={<UserForm />} />
             <Route
               path="*"
               element={<h1>Page Not Found 404 :/</h1>}
             />
           </Routes>
+          <Footer />
         </Router>
       </AppContext.Provider>
     </QueryClientProvider>

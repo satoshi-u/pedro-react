@@ -11,6 +11,9 @@ export const Navbar = () => {
       <Link className={styles.LinkNav} to="/about">
         About
       </Link>
+      <Link className={styles.LinkNav} to="/userform">
+        Register User
+      </Link>
     </div>
   );
 };

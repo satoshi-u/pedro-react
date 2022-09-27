@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './App.module.css';
 import { Project } from './Project';
-import { Footer } from './Footer';
 import Axios from 'axios';
 import { AppContext } from './App';
 import { useQuery } from '@tanstack/react-query';
@@ -156,7 +155,6 @@ const Home = () => {
           {catData?.fact}
         </div>
       )}
-      <Footer />
     </div>
   );
 };
