@@ -160,39 +160,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*
-                                          USE EFFECT
-
-This runs subsequently for any change in component, when states or props update
-useEffect(()=>{
-  ...
-})
-
-This runs subsequently only when the things specified in dependency array [], the second arg, changes
-useEffect(()=>{
-  ...
-}, [x])
-
-useEffect(()=>{
-  ...
-  return () => {code} // code runs only when the component is about to unmount
-}, [])
-
-NOTE: If you call an API in the component which changes the component-state outside the useEffect;
-      It will run forever.
-
-*/
-
-/*
-                                          USE QUERY
-
-const {data} = useQuery(['unique-namespace-key'], () => {
-  ... // call API
-});
-
-TODO: You can have a config file containing unique-namespace-keys, one for each API.
-
-NOTE: By default, useQuery fetches even if you switch browser tab. Disable in QueryClient config.
-
-*/

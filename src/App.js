@@ -15,7 +15,6 @@ import { UserForm } from './UserForm';
 import { Footer } from './Footer';
 
 // @ts-ignore
-// helps avoiding prop drilling & helps accessing data within siblings
 export const AppContext = createContext();
 
 // npx create-react-app .
@@ -53,7 +52,6 @@ export default App;
 
 /*
                                           USE EFFECT
-
 This runs subsequently for any change in component, when states or props update
 useEffect(()=>{
   ...
@@ -71,5 +69,31 @@ useEffect(()=>{
 
 NOTE: If you call an API in the component which changes the component-state outside the useEffect;
       It will run forever.
+*/
 
+/*
+                                          USE CONTEXT
+NOTE: it creates global scoped variables/functions
+      helps avoiding prop drilling(passing through a chain just to pass prop to end component)
+      easily access variables/functions within sibling-components
+*/
+
+/*
+                                          USE QUERY
+const {data} = useQuery(['unique-namespace-key'], () => {
+  ... // call API
+});
+
+NOTE: By default, useQuery fetches even if you switch browser tab. Disable in QueryClient config.
+
+TODO: You can have a config file containing unique-namespace-keys, one for each API.
+*/
+
+/*
+                                          USE CUSTOM HOOK
+NOTE: it abstracts away the logic into separate files.
+      we can reuse these hooks across components.
+      project becomes more organized - all logics in hooks and not components.
+
+TODO: Abstract cat fact api call into custom hook.
 */
