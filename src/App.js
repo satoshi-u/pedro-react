@@ -7,6 +7,10 @@ import {
 import { About } from './About';
 import Home from './Home';
 import { Navbar } from './Navbar';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 
 // @ts-ignore
 // helps avoiding prop drilling & helps accessing data within siblings
@@ -15,17 +19,29 @@ export const AppContext = createContext();
 // npx create-react-app .
 function App() {
   const [user, setUser] = useState('sarthak');
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
   return (
-    <AppContext.Provider value={{ user, setUser }}>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<h1>Page Not Found 404 :/</h1>} />
-        </Routes>
-      </Router>
-    </AppContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <AppContext.Provider value={{ user, setUser }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="*"
+              element={<h1>Page Not Found 404 :/</h1>}
+            />
+          </Routes>
+        </Router>
+      </AppContext.Provider>
+    </QueryClientProvider>
   );
 }
 

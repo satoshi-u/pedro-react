@@ -4,6 +4,7 @@ import { Project } from './Project';
 import { Footer } from './Footer';
 import Axios from 'axios';
 import { AppContext } from './App';
+import { useQuery } from '@tanstack/react-query';
 
 // npx create-react-app .
 const Home = () => {
@@ -20,6 +21,25 @@ const Home = () => {
   useEffect(() => {
     fetchProjectsAPI();
   }, []);
+
+  // USE QUERY
+  const {
+    data: catData,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery(['unique-key-cat'], () => {
+    let respData = Axios.get('https://catfact.ninja/fact').then(
+      (res) => res.data
+    );
+    while (!respData) {
+      respData = refetch().then((res) => res.data);
+    }
+    return respData;
+  });
+  if (isError)
+    console.error('got error in useQuery for fetching cat fact!');
+  else console.log('random cat fact: ', catData?.fact);
 
   // ACTION
   const handleName = (event) => {
@@ -126,6 +146,16 @@ const Home = () => {
           );
         })}
       </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className={styles.CatFact}>
+          <div style={{ color: 'lime', minWidth: '100px' }}>
+            Cat-Fact :
+          </div>
+          {catData?.fact}
+        </div>
+      )}
       <Footer />
     </div>
   );
@@ -153,5 +183,18 @@ useEffect(()=>{
 
 NOTE: If you call an API in the component which changes the component-state outside the useEffect;
       It will run forever.
+
+*/
+
+/*
+                                          USE QUERY
+
+const {data} = useQuery(['unique-namespace-key'], () => {
+  ... // call API
+});
+
+TODO: You can have a config file containing unique-namespace-keys, one for each API.
+
+NOTE: By default, useQuery fetches even if you switch browser tab. Disable in QueryClient config.
 
 */

@@ -22,7 +22,7 @@ export const Footer = () => {
     <div className={styles.Footer}>
       <div className={styles.Company}>
         <h1 style={{ color: isCompanyOpen ? '#61dafb' : '#F7E8A0' }}>
-          Settlemint - Blockchain Technology made Simple
+          Settlemint =&gt; Blockchain Technology made Simple
         </h1>
         <div className={styles.UnionRow}>
           {isCompanyOpen ? (

@@ -9,7 +9,7 @@ export const Project = (props) => {
       }
     >
       <h3 style={{ color: '#17152F' }}>ID: {props.id}</h3>
-      <h1 style={{ color: '#7669EB' }}>{props.name}</h1>
+      <h1 style={{ color: '#7669EB' }}>#{props.name}</h1>
       <h2 style={{ color: '#5249A4' }}>Built on {props.chain}</h2>
       <h3 style={{ color: '#6A8D26' }}>$ {props.budget}</h3>
       <h4 style={{ color: '#17152F' }}>

@@ -7,7 +7,7 @@ export const About = () => {
   return (
     <div>
       <div className={styles.User}>User : {user}</div>
-      <h1>About Page</h1>;
+      <h1>About Page</h1>
     </div>
   );
 };
