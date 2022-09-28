@@ -138,6 +138,7 @@ const Home = () => {
                 chain={project.chain}
                 budget={project.budget}
                 status={project.status}
+                // @ts-ignore
                 deleteProject={deleteProject}
                 toggleProjectStatus={toggleProjectStatus}
               />

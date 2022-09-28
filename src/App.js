@@ -18,6 +18,7 @@ import { Footer } from './Footer';
 export const AppContext = createContext();
 
 // npx create-react-app .
+// npx create-react-app . --template typescript
 function App() {
   const [user, setUser] = useState('sarthak');
   const queryClient = new QueryClient({

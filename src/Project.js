@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
+import Proptypes from 'prop-types';
 
 export const Project = (props) => {
   return (
@@ -23,4 +24,12 @@ export const Project = (props) => {
       </button>
     </div>
   );
+};
+
+Project.propTypes = {
+  id: Proptypes.number,
+  name: Proptypes.string,
+  chain: Proptypes.string,
+  budget: Proptypes.number,
+  status: Proptypes.bool,
 };
